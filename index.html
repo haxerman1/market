@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veni's market</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #36393f;
+            color: #dcddde;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #2f3136;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        header nav ul li a {
+            color: #7289da;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #99aab5;
+        }
+
+        main {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer {
+            background-color: #2f3136;
+            color: #99aab5;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #40444b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            margin-top: 1rem;
+        }
+
+        .btn, .buy-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #7289da;
+            color: white;
+            text-decoration: none;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover, .buy-btn:hover {
+            background-color: #5b6eae;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .payment-info {
+            margin-top: 2rem;
+        }
+
+        .payment-info button {
+            margin-top: 1rem;
+        }
+
+        h1, h2, p {
+            margin: 0 0 1rem 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn, .buy-btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-section {
+            background-color: #7289da;
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Marketplace</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showHome()">Home</a></li>
+                <li><a href="#product" onclick="showProduct()">VenyBot V2</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="container hero-section">
+            <h2>Welcome to Veni's Market</h2>
+            <p>Check out my latest product, VenyBot V2.</p>
+            <div class="btn-group">
+                <button class="btn" onclick="showProduct()">View Product</button>
+            </div>
+        </section>
+        <section id="product" class="container hidden">
+            <h2>VenyBot V2</h2>
+            <div class="product">
+                <div class="product-info">
+                    <p>Easy to use auto-play bot, guarantees to get you to Grand Champion.</p>
+                    <p>Game: Rocket League</p>
+                    <p>Price: €20</p>
+                    <button class="buy-btn" onclick="showPaymentInfo()">Buy</button>
+                </div>
+            </div>
+        </section>
+        <section id="payment-info" class="container hidden">
+            <h2>Payment Information</h2>
+            <p>After sending the money, add <strong>veni_._</strong> on Discord and message him.</p>
+            <p>Product: Rocket League Auto-play bot</p>
+            <p>Price: €20</p>
+            <button class="btn" onclick="window.location.href='https://paypal.me/haxergta'">Pay with PayPal</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Veni's Market, All rights reserved.</p>
+    </footer>
+    <script>
+        function showHome() {
+            document.getElementById('home').classList.remove('hidden');
+            document.getElementById('product').classList.add('hidden');
+            document.getElementById('payment-info').classList.add('hidden');
+        }
+
+        function showProduct() {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('product').classList.remove('hidden');
+            document.getElementById('payment-info').classList.add('hidden');
+        }
+
+        function showPaymentInfo() {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('product').classList.add('hidden');
+            document.getElementById('payment-info').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
